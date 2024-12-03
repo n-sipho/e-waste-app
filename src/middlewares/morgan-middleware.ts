@@ -1,6 +1,6 @@
 import morgan from "morgan";
 import express from "express";
-import { logger } from "./logger";
+import { logger } from "../utils/logger";
 
 morgan.token('id', (req: express.Request, res: express.Response) => {
     return res.locals.errorId

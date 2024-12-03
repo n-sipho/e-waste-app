@@ -6,12 +6,12 @@ export class UserMiddleware {
     static checkIfUserExists = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const { email } = req.body;
-            const user = await UserModel.getUserByEmail(email);
-            if (user.length > 0) {
+            const results = await UserModel.getUserByEmail(email);
+            const user = results[0];
+            if (user) {
                 throw new ApiError("User already exists", 400);
-            } else {
-                next();
             }
+            next();
         } catch (error) {
             next(error);
         }

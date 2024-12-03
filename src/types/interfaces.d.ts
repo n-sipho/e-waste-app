@@ -1,4 +1,4 @@
-import { Gender, UserType } from "./userEnums";
+import { Gender, UserType } from "./user-enums";
 
 export interface User {
     first_name: string;

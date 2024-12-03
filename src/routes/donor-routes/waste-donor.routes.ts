@@ -1,5 +1,5 @@
-import { Router, Request, Response } from "express";
+// import { Router, Request, Response } from "express";
 
-const wasteDonorRoutes = Router();
+// const wasteDonorRoutes = Router();
 
-wasteDonorRoutes.post("/")
+// wasteDonorRoutes.post("/")

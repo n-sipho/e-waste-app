@@ -6,6 +6,6 @@ export class UserModel {
         return await db.insert(user).into("users").returning("*");
     }
     static getUserByEmail = async (email: string) => {
-        return await db("users").where({ email });
+        return await db<User>("users").where({ email });
     }
 }
