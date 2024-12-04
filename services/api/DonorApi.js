@@ -91,7 +91,7 @@ module.exports = (donorModel, binModel) => {
     const geBins = async(req, res) => {
         const { uid } = req.body;
         let bins = await binModel.getAllBinTypes();
-        let account = await donorModel.findAccountById(uid);;
+        let account = await donorModel.findAccountById(uid);
 
         res.json({
             status: 'success',

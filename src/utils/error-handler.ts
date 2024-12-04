@@ -6,5 +6,5 @@ export const errorHandler = (err: ApiError | Error, req: express.Request, res: e
     const errorStatusCode = err instanceof ApiError ? err.statusCode : 500;
     res.locals.errorMessage = err.message;
     res.locals.errorStack = err.stack;
-    res.status(errorStatusCode).json({ errorId: res.locals.errorId, message: err.message });
+    res.status(errorStatusCode).json({ status: false, errorId: res.locals.errorId, message: err.message });
 }

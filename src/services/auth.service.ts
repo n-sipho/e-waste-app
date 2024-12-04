@@ -8,16 +8,14 @@ import { hashSync, compareSync, compare, hash, genSalt } from "bcryptjs";
 export class AuthService {
     static createAccount = async (data: User) => {
         const salt = await genSalt();
-        console.log(data.password);
-        
         const hashedPassword = await hash(data.password, salt);
-        console.log(hashedPassword);
         
         data.password = hashedPassword;
+
         const results = await UserModel.createUser(data);
         const user = results[0];
         const token = generateToken(user);
-        logger.info(`User ${user.email} created successfully`);
+
         return { token, email: user.email, type: user.type };
     }
 
